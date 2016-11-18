@@ -62,8 +62,6 @@ export LOCAL_SYSTEMIMAGE_SQUASHFS := y
 export ANDROID_ENABLE_BT         := uart
 export LOCAL_KCONFIG_CHIP_OVERRIDE := 7271A0
 export HW_AB_UPDATE_SUPPORT      := y
-export BROADCOM_WIFI_CHIPSET     := 43570a2
-export BRCM_DHD_NVRAM_NAME       := bcm43570_7252SSFFG.nvm
 export V3D_VARIANT               := vc5
 export LOCAL_DEVICE_REFERENCE_BUILD := device/broadcom/dawson/reference_build.mk
 
