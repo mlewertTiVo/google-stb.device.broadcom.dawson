@@ -10,7 +10,7 @@ export ANDROID_PRODUCT_OUT       := dawson
 LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:root/init.dawson.rc
 LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.nx.rc:root/init.nx.rc
 LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/ueventd.rc:root/ueventd.dawson.rc
-LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.fs.default.rc:root/init.fs.rc  # NOT verity
+LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.fs.verity.rc:root/init.fs.rc  # verity
 LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.eth.eth0.rc:root/init.eth.rc   # uses 'eth0'
 LOCAL_DEVICE_RCS                 += device/broadcom/dawson/rcs/init.block.rc:root/init.block.rc   # block devices
 LOCAL_DEVICE_RCS                 += device/broadcom/dawson/rcs/init.bcm.usb.rc:root/init.bcm.usb.rc   # uses 'configfs'
@@ -21,8 +21,8 @@ LOCAL_DEVICE_RECOVERY_RCS        += device/broadcom/dawson/rcs/init.block.rc:roo
 LOCAL_DEVICE_RECOVERY_RCS        += device/broadcom/dawson/rcs/init.recovery.usb.rc:root/init.recovery.usb.rc   # uses 'configfs'
 export LOCAL_DEVICE_RECOVERY_RCS
 
-LOCAL_DEVICE_FSTAB               := device/broadcom/common/fstab/fstab.squashfs.ab-update:root/fstab.bcm
-LOCAL_DEVICE_FSTAB               += device/broadcom/common/fstab/fstab.squashfs.ab-update:root/fstab.dawson
+LOCAL_DEVICE_FSTAB               := device/broadcom/common/fstab/fstab.verity.squashfs.ab-update:root/fstab.bcm
+LOCAL_DEVICE_FSTAB               += device/broadcom/common/fstab/fstab.verity.squashfs.ab-update:root/fstab.dawson
 export LOCAL_DEVICE_FSTAB
 
 LOCAL_DEVICE_RECOVERY_FSTAB      := device/broadcom/common/recovery/fstab.squashfs/recovery.fstab
@@ -63,6 +63,7 @@ export ANDROID_ENABLE_BT         := uart
 export LOCAL_KCONFIG_CHIP_OVERRIDE := 7271A0
 export HW_AB_UPDATE_SUPPORT      := y
 export V3D_VARIANT               := vc5
+export LOCAL_DEVICE_USE_VERITY   := y
 export LOCAL_DEVICE_REFERENCE_BUILD := device/broadcom/dawson/reference_build.mk
 
 # kernel command line.
