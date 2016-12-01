@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-include device/broadcom/dawson.mk
+include device/broadcom/dawson/dawson.mk
 
 PRODUCT_NAME                     := aosp_dawson
 PRODUCT_MODEL                    := dawson
