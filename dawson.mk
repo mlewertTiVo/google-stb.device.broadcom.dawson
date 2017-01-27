@@ -23,5 +23,5 @@ PRODUCT_BRAND                    := broadcom
 PRODUCT_DEVICE                   := dawson
 
 # additional setup per device.
-ADDITIONAL_DEFAULT_PROPERTIES    += ro.hardware=dawson
-ADDITIONAL_DEFAULT_PROPERTIES    += ro.product.board=dawson
+PRODUCT_PROPERTY_OVERRIDES    += ro.hardware=dawson
+PRODUCT_PROPERTY_OVERRIDES    += ro.product.board=dawson
