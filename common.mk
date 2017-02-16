@@ -23,7 +23,7 @@ export LOCAL_DEVICE_MEDIA
 # optional device override/addition.
 export LOCAL_DEVICE_OVERLAY      := device/broadcom/dawson/overlay
 export LOCAL_DEVICE_SEPOLICY_BLOCK := device/broadcom/dawson/sepolicy-block
-export LOCAL_DEVICE_AON_GPIO     := device/broadcom/dawson/aon_gpio.cfg:system/vendor/power/aon_gpio.cfg
+export LOCAL_DEVICE_AON_GPIO     := device/broadcom/dawson/aon_gpio.cfg:vendor/power/aon_gpio.cfg
 export LOCAL_DEVICE_KEY_POLL     := device/broadcom/common/keylayout/gpio_keys_polled.kl:system/usr/keylayout/gpio_keys_polled_5.kl
 export LOCAL_DEVICE_BT_CONFIG    := device/broadcom/dawson/bluetooth/vnd_dawson.txt
 export LOCAL_DEVICE_USERDATA     := 5927582720 # ~5.52GB
@@ -31,6 +31,7 @@ export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.conf
 export HW_ENCODER_SUPPORT        := n
 export BT_RFKILL_SUPPORT         := y
 export LOCAL_SYSTEMIMAGE_SQUASHFS := y
+export LOCAL_VENDORIMAGE_SQUASHFS := y
 export ANDROID_ENABLE_BT         := uart
 export LOCAL_KCONFIG_CHIP_OVERRIDE := 7271A0
 export HW_AB_UPDATE_SUPPORT      := y
