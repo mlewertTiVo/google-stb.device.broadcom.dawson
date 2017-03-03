@@ -25,6 +25,9 @@ export ANDROID_SUPPORTS_WIDEVINE  := n
 export ANDROID_ENABLE_HDMI_HDCP   := n
 export ANDROID_SUPPORTS_PLAYREADY := n
 
+# board missing bt, disable for now.
+export ANDROID_ENABLE_BT          := n
+
 # no legacy decoder (vp9, h263, mpeg4) in hardware s.2
 export HW_DECODER_LEGACY_SUPPORT  := n
 
