@@ -19,12 +19,6 @@ LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_pe
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
 
-# bring up.  no sage, no svp.
-export SAGE_SUPPORT               := n
-export ANDROID_SUPPORTS_WIDEVINE  := n
-export ANDROID_ENABLE_HDMI_HDCP   := n
-export ANDROID_SUPPORTS_PLAYREADY := n
-
 # board missing bt, disable for now.
 export ANDROID_ENABLE_BT          := n
 
