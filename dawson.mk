@@ -19,6 +19,10 @@ LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_pe
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
 
+# kernel command line.
+LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=512m@1528m
+LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=760m@768m
+
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
 PRODUCT_NAME                     := dawson
