@@ -28,6 +28,8 @@ export ANDROID_ENABLE_BT          := n
 
 # no legacy decoder (vp9, h263, mpeg4) in hardware s.2
 export HW_DECODER_LEGACY_SUPPORT  := n
+# v3d mmu available.
+export HW_GPU_MMU_SUPPORT         := y
 
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
