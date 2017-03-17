@@ -19,6 +19,11 @@ LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_pe
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
 
+# *** WARNING: O-BRING-UP: no drm's.
+export ANDROID_SUPPORTS_WIDEVINE  := n
+export ANDROID_SUPPORTS_PLAYREADY := n
+# *** WARNING: O-BRING-UP: no drm's.
+
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
 PRODUCT_NAME                     := dawson
