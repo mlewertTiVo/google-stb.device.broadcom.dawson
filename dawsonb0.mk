@@ -20,8 +20,8 @@ LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_pe
 include device/broadcom/dawson/common.mk
 
 # kernel command line.
-LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=bmem=528m@1496m
-LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=744m@752m
+LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=528m@416m
+LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=744m@944m
 
 # board missing bt, disable for now.
 export ANDROID_ENABLE_BT          := n
