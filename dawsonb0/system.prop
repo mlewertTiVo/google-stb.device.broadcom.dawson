@@ -15,6 +15,7 @@ ro.nx.capable.dtu=0
 # hwc2 options
 ro.nx.hwc2.tweak.fbcomp=1
 ro.nx.capable.cb=1
+ro.sf.lcd_density=320
 
 ro.nx.eth.irq_mode_mask=f:c
 
