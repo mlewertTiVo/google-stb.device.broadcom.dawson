@@ -2,7 +2,7 @@
 export LOCAL_ARM_AARCH64         := y
 export LOCAL_ARM_AARCH64_NOT_ABI_COMPATIBLE := y
 export NEXUS_PLATFORM            := 97268
-export BCHP_VER                  := A0
+export BCHP_VER                  := B0
 export PLATFORM                  := 97268
 export ANDROID_PRODUCT_OUT       := dawson
 
@@ -13,15 +13,25 @@ LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:
 LOCAL_DEVICE_FSTAB               := device/broadcom/common/fstab/fstab.verity.squashfs.ab-update:root/fstab.dawson
 
 # compile the media codecs for the device.
-LOCAL_DEVICE_MEDIA               := device/broadcom/common/media/media_codecs_no_enc.xml:system/etc/media_codecs.xml
-LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_performance_no_enc.xml:system/etc/media_codecs_performance.xml
+LOCAL_DEVICE_MEDIA               := device/broadcom/common/media/media_codecs_no_legacy_enc.xml:system/etc/media_codecs.xml
+LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_performance_no_legacy_enc.xml:system/etc/media_codecs_performance.xml
 
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
 
 # kernel command line.
-LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=512m@1528m
-LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=760m@768m
+LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=528m@416m
+LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=744m@944m
+
+# board missing bt, disable for now.
+export ANDROID_ENABLE_BT          := n
+
+# no legacy decoder (vp9, h263, mpeg4) in hardware s.2
+export HW_DECODER_LEGACY_SUPPORT  := n
+# v3d mmu available.
+export HW_GPU_MMU_SUPPORT         := y
+# dtu enabled.
+export HW_DTU_SUPPORT             := n
 
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
