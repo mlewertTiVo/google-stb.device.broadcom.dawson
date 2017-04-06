@@ -1,3 +1,2 @@
 PRODUCT_MAKEFILES := $(LOCAL_DIR)/dawson.mk
 PRODUCT_MAKEFILES += $(LOCAL_DIR)/aosp_dawson.mk
-PRODUCT_MAKEFILES += $(LOCAL_DIR)/dawson.mk
