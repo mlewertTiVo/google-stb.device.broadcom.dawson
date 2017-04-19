@@ -24,7 +24,7 @@ export LOCAL_DEVICE_MEDIA
 export LOCAL_DEVICE_OVERLAY      := device/broadcom/dawson/overlay
 export LOCAL_DEVICE_SEPOLICY_BLOCK := device/broadcom/dawson/sepolicy-block
 export LOCAL_DEVICE_AON_GPIO     := device/broadcom/dawson/aon_gpio.cfg:vendor/power/aon_gpio.cfg
-export LOCAL_DEVICE_KEY_POLL     := device/broadcom/common/keylayout/gpio_keys_polled.kl:system/usr/keylayout/gpio_keys_polled_5.kl
+export LOCAL_DEVICE_KEY_POLL     := device/broadcom/common/keylayout/gpio_keys_polled.kl:system/usr/keylayout/gpio_keys_polled.kl
 export LOCAL_DEVICE_BT_CONFIG    := device/broadcom/dawson/bluetooth/vnd_dawson.txt
 export LOCAL_DEVICE_USERDATA     := 5927582720 # ~5.52GB
 export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.conf
@@ -33,7 +33,7 @@ export BT_RFKILL_SUPPORT         := y
 export LOCAL_SYSTEMIMAGE_SQUASHFS := y
 export LOCAL_VENDORIMAGE_SQUASHFS := y
 export ANDROID_ENABLE_BT         := uart
-export LOCAL_KCONFIG_CHIP_OVERRIDE := 7271A0
+export LOCAL_KCONFIG_CHIP_OVERRIDE := 7271B0
 export HW_AB_UPDATE_SUPPORT      := y
 export V3D_VARIANT               := vc5
 export LOCAL_DEVICE_USE_VERITY   := y
@@ -41,8 +41,6 @@ export LOCAL_DEVICE_REFERENCE_BUILD := device/broadcom/dawson/reference_build.mk
 
 # kernel command line.
 LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2040m@0m
-LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=512m@1528m
-LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=760m@768m
 LOCAL_DEVICE_KERNEL_CMDLINE      += ramoops.mem_address=0x7F800000 ramoops.mem_size=0x800000 ramoops.console_size=0x400000
 LOCAL_DEVICE_KERNEL_CMDLINE      += rootwait init=/init ro
 export LOCAL_DEVICE_KERNEL_CMDLINE
