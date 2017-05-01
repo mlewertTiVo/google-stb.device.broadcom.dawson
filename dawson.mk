@@ -16,9 +16,6 @@ LOCAL_DEVICE_FSTAB               := device/broadcom/common/fstab/fstab.verity.sq
 LOCAL_DEVICE_MEDIA               := device/broadcom/common/media/media_codecs_no_legacy_enc.xml:system/etc/media_codecs.xml
 LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_performance_no_legacy_enc.xml:system/etc/media_codecs_performance.xml
 
-# temporary: test sage binaries for dtu support.
-export SAGE_APP_BINARY_PATH      := device/broadcom/dawson/dawson/sage_dtu/slogs
-
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
 
@@ -51,3 +48,7 @@ PRODUCT_DEVICE                   := dawson
 # additional setup per device.
 PRODUCT_PROPERTY_OVERRIDES    += ro.hardware=dawson
 PRODUCT_PROPERTY_OVERRIDES    += ro.product.board=dawson
+
+# because of "ANDROID_ENABLE_BT := n" above.
+PRODUCT_PROPERTY_OVERRIDES    += config.disable_bluetooth=true
+
