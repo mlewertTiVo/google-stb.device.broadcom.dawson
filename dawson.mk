@@ -37,7 +37,7 @@ export HW_DTU_SUPPORT             := n
 $(call inherit-product, device/broadcom/common/bcm.mk)
 PRODUCT_NAME                     := dawson
 PRODUCT_MODEL                    := dawson
-PRODUCT_BRAND                    := broadcom
+PRODUCT_BRAND                    := google
 PRODUCT_DEVICE                   := dawson
 
 # additional setup per device.
