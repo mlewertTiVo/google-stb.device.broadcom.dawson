@@ -20,7 +20,7 @@ ro.sf.lcd_density=320
 ro.nx.eth.irq_mode_mask=f:c
 
 # google assigned client id
-ro.com.google.clientidbase=android-dawson
+ro.com.google.clientidbase=android-dawson-tv
 
 ro.nrdp.modelgroup=DAWSON
 ro.nrdp.validation=ninja_4
