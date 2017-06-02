@@ -1,11 +1,13 @@
-export ANDROID_PRODUCT_OUT       := dawson
+# non-vendor-image layout: there is no separate partition for vendor.img in O+.
+export LOCAL_NVI_LAYOUT          := y
+export ANDROID_PRODUCT_OUT       := dawson_nvi
 
 # compile the rc's for the device.
-LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:root/init.dawson.rc
-LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/ueventd.rc:root/ueventd.dawson.rc
-LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:root/init.recovery.dawson.rc
+LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:root/init.dawson_nvi.rc
+LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/ueventd.rc:root/ueventd.dawson_nvi.rc
+LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:root/init.recovery.dawson_nvi.rc
 
-LOCAL_DEVICE_FSTAB               := device/broadcom/dawson/fstab/fstab.verity.squashfs.ab-update.early:root/fstab.dawson
+LOCAL_DEVICE_FSTAB               := device/broadcom/dawson/fstab/fstab.verity.squashfs.ab-update.early:root/fstab.dawson_nvi
 LOCAL_DEVICE_FSTAB               += device/broadcom/dawson/fstab/fstab.verity.squashfs.ab-update.early:root/fstab.bcm
 export LOCAL_DEVICE_FSTAB
 
@@ -20,7 +22,7 @@ export LOCAL_SYSTEMIMAGE_SQUASHFS := y
 export LOCAL_VENDORIMAGE_SQUASHFS := y
 export HW_AB_UPDATE_SUPPORT      := y
 export LOCAL_DEVICE_USE_VERITY   := y
-export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.conf
+export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.nvi.conf
 export LOCAL_DEVICE_SEPOLICY_BLOCK := device/broadcom/dawson/sepolicy-block
 
 # temporary: test sage binaries for dtu support.
@@ -42,14 +44,14 @@ export HW_DTU_SUPPORT             := y
 
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
-PRODUCT_NAME                     := dawson
-PRODUCT_MODEL                    := dawson
-PRODUCT_BRAND                    := google
-PRODUCT_DEVICE                   := dawson
+PRODUCT_NAME                     := dawson_nvi
+PRODUCT_MODEL                    := dawson_nvi
+PRODUCT_BRAND                    := broadcom
+PRODUCT_DEVICE                   := dawson_nvi
 
 # additional setup per device.
-PRODUCT_PROPERTY_OVERRIDES    += ro.hardware=dawson
-PRODUCT_PROPERTY_OVERRIDES    += ro.product.board=dawson
+PRODUCT_PROPERTY_OVERRIDES    += ro.hardware=dawson_nvi
+PRODUCT_PROPERTY_OVERRIDES    += ro.product.board=dawson_nvi
 
 # because of "ANDROID_ENABLE_BT := n" above.
 PRODUCT_PROPERTY_OVERRIDES    += config.disable_bluetooth=true
