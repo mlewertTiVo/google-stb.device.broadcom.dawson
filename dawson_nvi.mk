@@ -25,9 +25,6 @@ export LOCAL_DEVICE_USE_VERITY   := y
 export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.nvi.conf
 export LOCAL_DEVICE_SEPOLICY_BLOCK := device/broadcom/dawson/sepolicy-block
 
-# temporary: test sage binaries for dtu support.
-export SAGE_APP_BINARY_PATH      := device/broadcom/dawson/dawson/sage_dtu/slogs
-
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
 
