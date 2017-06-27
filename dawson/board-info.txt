@@ -1,2 +1,2 @@
 require board=dawson
-
+require version-bootloader=v1.29-188-g5163e44
