@@ -16,10 +16,10 @@ export LOCAL_DEVICE_RECOVERY_FSTAB
 
 # compile the media codecs for the device.
 LOCAL_DEVICE_MEDIA               := device/broadcom/common/media/media_codecs_no_legacy_enc.xml:system/etc/media_codecs.xml
-LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_performance_no_legacy_enc.xml:system/etc/media_codecs_performance.xml
+LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_performance_v2_no_legacy_enc.xml:system/etc/media_codecs_performance.xml
 
 export LOCAL_SYSTEMIMAGE_SQUASHFS := y
-export LOCAL_VENDORIMAGE_SQUASHFS := y
+export LOCAL_VENDORIMAGE_SQUASHFS := n
 export HW_AB_UPDATE_SUPPORT      := y
 export LOCAL_DEVICE_USE_VERITY   := y
 export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.nvi.conf
@@ -49,7 +49,3 @@ PRODUCT_DEVICE                   := dawson_nvi
 # additional setup per device.
 PRODUCT_PROPERTY_OVERRIDES    += ro.hardware=dawson_nvi
 PRODUCT_PROPERTY_OVERRIDES    += ro.product.board=dawson_nvi
-
-# because of "ANDROID_ENABLE_BT := n" above.
-PRODUCT_PROPERTY_OVERRIDES    += config.disable_bluetooth=true
-
