@@ -14,7 +14,7 @@ export LOCAL_DEVICE_RECOVERY_FSTAB
 
 # compile the media codecs for the device.
 LOCAL_DEVICE_MEDIA               := device/broadcom/common/media/media_codecs_no_legacy_enc.xml:system/etc/media_codecs.xml
-LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_performance_no_legacy_enc.xml:system/etc/media_codecs_performance.xml
+LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_codecs_performance_v2_no_legacy_enc.xml:system/etc/media_codecs_performance.xml
 
 export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/default_v2.conf
 export LOCAL_DEVICE_SEPOLICY_BLOCK := device/broadcom/dawson/sepolicy-block-v2
@@ -25,9 +25,6 @@ include device/broadcom/dawson/common.mk
 # kernel command line.
 LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=528m@416m
 LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=744m@944m
-
-# board missing bt, disable for now.
-export ANDROID_ENABLE_BT          := n
 
 # no legacy decoder (vp8, h263, mpeg4) in hardware s.2
 export HW_HVD_REVISION := S
