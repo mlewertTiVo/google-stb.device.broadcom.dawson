@@ -37,6 +37,7 @@ export HW_GPU_MMU_SUPPORT         := y
 
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
+$(call inherit-product, build/make/target/product/product_launched_with_n.mk)
 PRODUCT_NAME                     := dawson
 PRODUCT_MODEL                    := dawson
 PRODUCT_BRAND                    := google
