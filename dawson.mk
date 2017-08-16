@@ -27,8 +27,8 @@ export LOCAL_DEVICE_SEPOLICY_BLOCK := device/broadcom/dawson/sepolicy-block
 include device/broadcom/dawson/common.mk
 
 # kernel command line.
-LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=518m@416m
-LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=586m@936m
+LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=240m@416m
+LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=768m@1240m
 
 # no legacy decoder (vp8, h263, mpeg4) in hardware s.2
 export HW_HVD_REVISION            := S
