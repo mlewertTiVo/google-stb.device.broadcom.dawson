@@ -32,7 +32,6 @@ export LOCAL_DEVICE_USERDATA     := 5368709120  # 5.0009GB.
 export HW_ENCODER_SUPPORT        := n
 export BT_RFKILL_SUPPORT         := y
 export ANDROID_ENABLE_BT         := uart
-export LOCAL_KCONFIG_CHIP_OVERRIDE := 7271B0
 export V3D_VARIANT               := vc5
 export LOCAL_DEVICE_REFERENCE_BUILD := device/broadcom/dawson/reference_build.mk
 export LOCAL_DEVICE_SYSTEM_VERITY_PARTITION := /dev/block/platform/rdb/f0200200.sdhci/by-name/system
