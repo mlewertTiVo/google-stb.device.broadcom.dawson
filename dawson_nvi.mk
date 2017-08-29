@@ -45,4 +45,4 @@ PRODUCT_DEVICE                   := dawson_nvi
 
 # additional setup per device.
 PRODUCT_PROPERTY_OVERRIDES    += ro.hardware=dawson_nvi
-PRODUCT_PROPERTY_OVERRIDES    += ro.product.board=dawson_nvi
+TARGET_BOOTLOADER_BOARD_NAME := dawson_nvi
