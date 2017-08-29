@@ -44,4 +44,4 @@ PRODUCT_DEVICE                   := dawson
 
 # additional setup per device.
 PRODUCT_PROPERTY_OVERRIDES    += ro.hardware=dawson
-PRODUCT_PROPERTY_OVERRIDES    += ro.product.board=dawson
+TARGET_BOOTLOADER_BOARD_NAME := dawson
