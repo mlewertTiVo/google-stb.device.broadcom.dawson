@@ -4,5 +4,7 @@ include $(LOCAL_PATH)/AndroidKernel.mk
 include $(LOCAL_PATH)/AndroidPhony.mk
 
 $(call add-radio-file, bootloader.img)
-$(call add-radio-file, gpt.bin)
 
+ifneq ($(BCM_DIST_BLIM_BINS),y)
+$(call add-radio-file, gpt.bin)
+endif
