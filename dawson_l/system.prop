@@ -24,7 +24,3 @@ ro.com.google.clientidbase=android-dawson-tv
 
 ro.nrdp.modelgroup=DAWSON
 ro.nrdp.validation=ninja_4
-
-# gfx driver versioning package.
-ro.gfx.driver.0=gfxdriver-bcmstb
-
