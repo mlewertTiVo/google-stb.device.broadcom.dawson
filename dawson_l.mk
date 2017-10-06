@@ -16,7 +16,7 @@ export LOCAL_DEVICE_RECOVERY_FSTAB
 LOCAL_DEVICE_MEDIA               := device/broadcom/common/media/media_codecs_no_legacy_enc.xml:system/etc/media_codecs.xml
 
 export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/default_v2.conf
-export LOCAL_DEVICE_SEPOLICY_BLOCK := device/broadcom/dawson/sepolicy-block-v2
+export LOCAL_DEVICE_SEPOLICY_BLOCK := device/broadcom/dawson/sepolicy-v2/block
 
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
