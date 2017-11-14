@@ -1,4 +1,5 @@
 export ANDROID_PRODUCT_OUT       := dawson
+export LOCAL_DEVICE_FULL_TREBLE  := y
 
 # compile the rc's for the device.
 LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:root/init.dawson.rc
