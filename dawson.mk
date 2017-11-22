@@ -7,7 +7,7 @@ export PLATFORM                  := 97268
 export ANDROID_PRODUCT_OUT       := dawson
 
 # compile the rc's for the device.
-LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:root/init.dawson.rc
+LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.mmu.rc:root/init.dawson.rc
 LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/ueventd.rc:root/ueventd.dawson.rc
 LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:root/init.recovery.dawson.rc
 LOCAL_DEVICE_FSTAB               := device/broadcom/common/fstab/fstab.verity.squashfs.ab-update:root/fstab.dawson
