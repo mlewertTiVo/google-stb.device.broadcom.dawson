@@ -1,6 +1,6 @@
 # mandatory device configuration.
 export LOCAL_ARM_AARCH64         := y
-export LOCAL_ARM_AARCH64_NOT_ABI_COMPATIBLE := y
+export LOCAL_ARM_AARCH64_NOT_ABI_COMPATIBLE ?= y
 export NEXUS_PLATFORM            := 97268
 export BCHP_VER                  := B0
 export PLATFORM                  := 97268
