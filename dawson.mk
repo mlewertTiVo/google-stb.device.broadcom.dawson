@@ -1,4 +1,5 @@
 export ANDROID_PRODUCT_OUT       := dawson
+export LOCAL_DEVICE_FULL_TREBLE  := y
 
 # compile the rc's for the device.
 LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:root/init.dawson.rc
@@ -20,13 +21,12 @@ export LOCAL_VENDORIMAGE_SQUASHFS := n
 export HW_AB_UPDATE_SUPPORT      := y
 export LOCAL_DEVICE_USE_VERITY   := y
 export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.conf
-export LOCAL_DEVICE_SEPOLICY_BLOCK := device/broadcom/dawson/sepolicy-block
 
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
 
 # kernel command line.
-LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=240m@416m
+LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=242m@414m
 LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=768m@1240m
 
 # no legacy decoder (vp8, h263, mpeg4) in hardware s.2
