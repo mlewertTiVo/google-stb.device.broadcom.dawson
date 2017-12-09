@@ -20,7 +20,8 @@ export LOCAL_SYSTEMIMAGE_SQUASHFS := n
 export LOCAL_VENDORIMAGE_SQUASHFS := n
 export HW_AB_UPDATE_SUPPORT      := y
 export LOCAL_DEVICE_USE_VERITY   := y
-export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.conf
+export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.o.conf
+export LOCAL_DEVICE_GPT_O_LAYOUT := y
 
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
