@@ -1,6 +1,7 @@
 # mandatory device configuration.
 export LOCAL_ARM_AARCH64         := y
 export LOCAL_ARM_AARCH64_NOT_ABI_COMPATIBLE ?= y
+export LOCAL_ARM_AARCH64_COMPAT_32_BIT ?= n
 export NEXUS_PLATFORM            := 97268
 export BCHP_VER                  := B0
 export PLATFORM                  := 97268
@@ -44,6 +45,9 @@ export LOCAL_DEVICE_AON_GPIO     := device/broadcom/dawson/aon_gpio.cfg:$(TARGET
 export LOCAL_DEVICE_KEY_POLL     := device/broadcom/common/keylayout/gpio_keys_polled.kl:system/usr/keylayout/gpio_keys_polled.kl
 export LOCAL_DEVICE_BT_CONFIG    := device/broadcom/dawson/bluetooth/vnd_dawson.txt
 export LOCAL_DEVICE_USERDATA     := 5368709120  # 5.0009GB.
+ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
+export LOCAL_DEVICE_BOOT         := 67108864   # 64M
+endif
 export HW_ENCODER_SUPPORT        := n
 export BT_RFKILL_SUPPORT         := y
 export ANDROID_ENABLE_BT         := uart
@@ -56,7 +60,12 @@ export LOCAL_DEVICE_VENDOR_VERITY_PARTITION := /dev/block/platform/rdb/f0200200.
 export HW_DTU_SUPPORT            := y
 
 # kernel command line.
+ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
+# TODO: figure out the ramoops hole setup.
+LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
+else
 LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2008m@0m mem=32m@2016m
 LOCAL_DEVICE_KERNEL_CMDLINE      += ramoops.mem_address=0x7D800000 ramoops.mem_size=0x800000 ramoops.console_size=0x400000
+endif
 LOCAL_DEVICE_KERNEL_CMDLINE      += rootwait init=/init ro
 export LOCAL_DEVICE_KERNEL_CMDLINE
