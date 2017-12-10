@@ -1,4 +1,4 @@
-export ANDROID_PRODUCT_OUT       := dawsonk64
+export LOCAL_PRODUCT_OUT       := dawsonk64
 export LOCAL_DEVICE_FULL_TREBLE  := y
 # enable user mode 32bit with kernel mode 64bit compatible mode.
 export LOCAL_ARM_AARCH64_COMPAT_32_BIT := y
