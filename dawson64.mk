@@ -1,4 +1,4 @@
-export ANDROID_PRODUCT_OUT       := dawson64
+export LOCAL_PRODUCT_OUT       := dawson64
 export LOCAL_DEVICE_FULL_TREBLE  := y
 # this is a 64bit target device.
 export LOCAL_ARM_AARCH64_NOT_ABI_COMPATIBLE := n

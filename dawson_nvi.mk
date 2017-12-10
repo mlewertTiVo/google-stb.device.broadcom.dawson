@@ -1,6 +1,6 @@
 # non-vendor-image layout: there is no separate partition for vendor.img in O+.
 export LOCAL_NVI_LAYOUT          := y
-export ANDROID_PRODUCT_OUT       := dawson_nvi
+export LOCAL_PRODUCT_OUT       := dawson_nvi
 
 # compile the rc's for the device.
 LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:root/init.dawson_nvi.rc
