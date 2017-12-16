@@ -7,7 +7,7 @@ export PLATFORM                  := 97268
 export ANDROID_PRODUCT_OUT       := dawson
 
 # compile the rc's for the device.
-LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.mmu.rc:root/init.dawson.rc
+LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:root/init.dawson.rc
 LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/ueventd.rc:root/ueventd.dawson.rc
 LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:root/init.recovery.dawson.rc
 LOCAL_DEVICE_FSTAB               := device/broadcom/common/fstab/fstab.verity.ab-update:root/fstab.dawson
@@ -26,7 +26,7 @@ LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=608m@1432m
 # no legacy decoder (vp8, h263, mpeg4) in hardware s.2
 export HW_HVD_REVISION := S
 # v3d mmu available.
-export HW_GPU_MMU_SUPPORT         := y
+export HW_GPU_MMU_SUPPORT         := n
 # dtu enabled.
 export HW_DTU_SUPPORT             := n
 
