@@ -1,6 +1,6 @@
 # non-vendor-image layout: there is no separate partition for vendor.img in O+.
 export LOCAL_NVI_LAYOUT          := y
-export ANDROID_PRODUCT_OUT       := dawson_nvi
+export LOCAL_PRODUCT_OUT       := dawson_nvi
 
 # compile the rc's for the device.
 LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:root/init.dawson_nvi.rc
@@ -27,7 +27,7 @@ export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.nvi.conf
 include device/broadcom/dawson/common.mk
 
 # kernel command line.
-LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=240m@416m
+LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=242m@414m
 LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=768m@1240m
 
 # no legacy decoder (vp8, h263, mpeg4) in hardware s.2
