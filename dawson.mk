@@ -1,4 +1,4 @@
-export ANDROID_PRODUCT_OUT       := dawson
+export LOCAL_PRODUCT_OUT       := dawson
 export LOCAL_DEVICE_FULL_TREBLE  := y
 
 # compile the rc's for the device.
@@ -37,7 +37,8 @@ export HW_GPU_MMU_SUPPORT         := y
 
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
-$(call inherit-product, build/make/target/product/product_launched_with_n.mk)
+#$(call inherit-product, build/make/target/product/product_launched_with_o.mk)
+PRODUCT_SHIPPING_API_LEVEL       := 26
 PRODUCT_NAME                     := dawson
 PRODUCT_MODEL                    := dawson
 PRODUCT_BRAND                    := google
