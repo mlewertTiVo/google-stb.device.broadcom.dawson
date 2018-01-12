@@ -22,7 +22,8 @@ export LOCAL_SYSTEMIMAGE_SQUASHFS := n
 export LOCAL_VENDORIMAGE_SQUASHFS := n
 export HW_AB_UPDATE_SUPPORT      := y
 export LOCAL_DEVICE_USE_VERITY   := y
-export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.conf
+export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.o.conf
+export LOCAL_DEVICE_GPT_O_LAYOUT := y
 
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
@@ -38,7 +39,8 @@ export HW_GPU_MMU_SUPPORT         := y
 
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
-$(call inherit-product, build/make/target/product/product_launched_with_n.mk)
+#$(call inherit-product, build/make/target/product/product_launched_with_o_mr1.mk)
+PRODUCT_SHIPPING_API_LEVEL       := 27
 PRODUCT_NAME                     := dawsonk64
 PRODUCT_MODEL                    := dawsonk64
 PRODUCT_BRAND                    := google
