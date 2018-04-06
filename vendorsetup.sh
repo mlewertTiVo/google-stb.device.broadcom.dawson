@@ -7,6 +7,6 @@ add_lunch_combo dawson_nvi-user
 
 add_lunch_combo aosp_dawson-userdebug
 
-add_lunch_combo dawson64-userdebug
-add_lunch_combo dawsonk64-userdebug
+#add_lunch_combo dawson64-userdebug
+#add_lunch_combo dawsonk64-userdebug
 
