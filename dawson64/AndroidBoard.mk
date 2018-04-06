@@ -8,4 +8,3 @@ $(call add-radio-file, bootloader.img)
 ifneq ($(BCM_DIST_BLIM_BINS),y)
 $(call add-radio-file, gpt.bin)
 endif
-

@@ -1,12 +1,14 @@
-export LOCAL_PRODUCT_OUT       := dawson
+export LOCAL_PRODUCT_OUT       := dawsonk64
 export LOCAL_DEVICE_FULL_TREBLE  := y
+# enable user mode 32bit with kernel mode 64bit compatible mode.
+export LOCAL_ARM_AARCH64_COMPAT_32_BIT := y
 
 # compile the rc's for the device.
-LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.dawson.rc
+LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.dawsonk64.rc
 LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
-LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:root/init.recovery.dawson.rc
+LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:root/init.recovery.dawsonk64.rc
 
-LOCAL_DEVICE_FSTAB               := device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.dawson
+LOCAL_DEVICE_FSTAB               := device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.dawsonk64
 LOCAL_DEVICE_FSTAB               += device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.bcm
 export LOCAL_DEVICE_FSTAB
 
@@ -37,16 +39,16 @@ export HW_GPU_MMU_SUPPORT         := y
 
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
-#$(call inherit-product, build/make/target/product/product_launched_with_o.mk)
-PRODUCT_SHIPPING_API_LEVEL       := 26
-PRODUCT_NAME                     := dawson
-PRODUCT_MODEL                    := dawson
+#$(call inherit-product, build/make/target/product/product_launched_with_o_mr1.mk)
+PRODUCT_SHIPPING_API_LEVEL       := 27
+PRODUCT_NAME                     := dawsonk64
+PRODUCT_MODEL                    := dawsonk64
 PRODUCT_BRAND                    := google
-PRODUCT_DEVICE                   := dawson
+PRODUCT_DEVICE                   := dawsonk64
 
 # additional setup per device.
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.hardware=dawson \
+   ro.hardware=dawsonk64 \
    \
    ro.opengles.version=196609 \
    debug.hwui.render_dirty_regions=false \
@@ -70,4 +72,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.nrdp.modelgroup=DAWSON \
    ro.nrdp.validation=ninja_5.1
 
-TARGET_BOOTLOADER_BOARD_NAME := dawson
+TARGET_BOOTLOADER_BOARD_NAME := dawsonk64

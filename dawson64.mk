@@ -1,12 +1,15 @@
-export LOCAL_PRODUCT_OUT       := dawson
+export LOCAL_PRODUCT_OUT       := dawson64
 export LOCAL_DEVICE_FULL_TREBLE  := y
+# this is a 64bit target device.
+export LOCAL_ARM_AARCH64_NOT_ABI_COMPATIBLE := n
+export LOCAL_ANDROID_64BIT       := y
 
 # compile the rc's for the device.
-LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.dawson.rc
-LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
-LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:root/init.recovery.dawson.rc
+LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.dawson64.rc
+LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/ueventd.rc
+LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:root/init.recovery.dawson64.rc
 
-LOCAL_DEVICE_FSTAB               := device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.dawson
+LOCAL_DEVICE_FSTAB               := device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.dawson64
 LOCAL_DEVICE_FSTAB               += device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.bcm
 export LOCAL_DEVICE_FSTAB
 
@@ -22,6 +25,7 @@ export HW_AB_UPDATE_SUPPORT      := y
 export LOCAL_DEVICE_USE_VERITY   := y
 export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.o.conf
 export LOCAL_DEVICE_GPT_O_LAYOUT := y
+export LOCAL_DEVICE_BOOT         := 67108864   # 64M
 
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
@@ -37,16 +41,16 @@ export HW_GPU_MMU_SUPPORT         := y
 
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
-#$(call inherit-product, build/make/target/product/product_launched_with_o.mk)
-PRODUCT_SHIPPING_API_LEVEL       := 26
-PRODUCT_NAME                     := dawson
-PRODUCT_MODEL                    := dawson
+#$(call inherit-product, build/make/target/product/product_launched_with_o_mr1.mk)
+PRODUCT_SHIPPING_API_LEVEL       := 27
+PRODUCT_NAME                     := dawson64
+PRODUCT_MODEL                    := dawson64
 PRODUCT_BRAND                    := google
-PRODUCT_DEVICE                   := dawson
+PRODUCT_DEVICE                   := dawson64
 
 # additional setup per device.
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.hardware=dawson \
+   ro.hardware=dawson64 \
    \
    ro.opengles.version=196609 \
    debug.hwui.render_dirty_regions=false \
@@ -67,7 +71,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.nx.eth.irq_mode_mask=f:c \
    \
    ro.com.google.clientidbase=android-dawson-tv \
+   \
    ro.nrdp.modelgroup=DAWSON \
    ro.nrdp.validation=ninja_5.1
 
-TARGET_BOOTLOADER_BOARD_NAME := dawson
+TARGET_BOOTLOADER_BOARD_NAME := dawson64

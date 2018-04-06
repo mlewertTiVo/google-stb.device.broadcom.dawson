@@ -15,23 +15,23 @@ export BCM_DIST_BLIM_BINS        := y
 
 # compile the rc's for the device.
 ifeq ($(LOCAL_DEVICE_FULL_TREBLE),y)
-LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.ft.mmu.nx.rc:root/init.nx.rc
+LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.ft.mmu.nx.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.nx.rc
 else
-LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.mmu.nx.rc:root/init.nx.rc
+LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.mmu.nx.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.nx.rc
 endif
-LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.fs.verity.rc:root/init.fs.rc  # verity
-LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.eth.eth0.rc:root/init.eth.rc   # uses 'eth0'
-LOCAL_DEVICE_RCS                 += device/broadcom/dawson/rcs/init.block.rc:root/init.block.rc   # block devices
-LOCAL_DEVICE_RCS                 += device/broadcom/dawson/rcs/init.bcm.usb.rc:root/init.bcm.usb.rc   # uses 'configfs'
+LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.fs.verity.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.fs.rc    # verity
+LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/init.eth.eth0.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.eth.rc    # uses 'eth0'
+LOCAL_DEVICE_RCS                 += device/broadcom/dawson/rcs/init.block.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.block.rc     # block devices
+LOCAL_DEVICE_RCS                 += device/broadcom/dawson/rcs/init.bcm.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.bcm.usb.rc # uses 'configfs'
 export LOCAL_DEVICE_RCS
 
-LOCAL_DEVICE_RECOVERY_RCS        += device/broadcom/dawson/rcs/init.block.rc:root/init.recovery.block.rc   # block devices
+LOCAL_DEVICE_RECOVERY_RCS        += device/broadcom/dawson/rcs/init.block.rc:root/init.recovery.block.rc        # block devices
 LOCAL_DEVICE_RECOVERY_RCS        += device/broadcom/dawson/rcs/init.recovery.usb.rc:root/init.recovery.usb.rc   # uses 'configfs'
 export LOCAL_DEVICE_RECOVERY_RCS
 
 # compile the media codecs for the device.
-LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_profiles.xml:system/etc/media_profiles.xml
-LOCAL_DEVICE_MEDIA               += device/broadcom/dawson/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+LOCAL_DEVICE_MEDIA               += device/broadcom/common/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml
+LOCAL_DEVICE_MEDIA               += device/broadcom/dawson/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 export LOCAL_DEVICE_MEDIA
 
 # optional device override/addition.
@@ -75,8 +75,8 @@ ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
 # TODO: figure out the ramoops hole setup.
 LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
 else
-LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2008m@0m mem=32m@2016m
-LOCAL_DEVICE_KERNEL_CMDLINE      += ramoops.mem_address=0x7D800000 ramoops.mem_size=0x800000 ramoops.console_size=0x400000
+LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2000m@0m mem=40m@2008m
+LOCAL_DEVICE_KERNEL_CMDLINE      += ramoops.mem_address=0x7D000000 ramoops.mem_size=0x800000 ramoops.console_size=0x400000
 endif
 LOCAL_DEVICE_KERNEL_CMDLINE      += rootwait init=/init ro
 export LOCAL_DEVICE_KERNEL_CMDLINE
