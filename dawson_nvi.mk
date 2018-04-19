@@ -37,6 +37,7 @@ export HW_GPU_MMU_SUPPORT         := y
 
 # baseline the common support.
 $(call inherit-product, device/broadcom/common/bcm.mk)
+PRODUCT_SHIPPING_API_LEVEL       := 26
 PRODUCT_NAME                     := dawson_nvi
 PRODUCT_MODEL                    := dawson_nvi
 PRODUCT_BRAND                    := broadcom
