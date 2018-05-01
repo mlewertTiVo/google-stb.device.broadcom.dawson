@@ -3,3 +3,4 @@ PRODUCT_MAKEFILES += $(LOCAL_DIR)/dawson64.mk
 PRODUCT_MAKEFILES += $(LOCAL_DIR)/dawsonk64.mk
 PRODUCT_MAKEFILES += $(LOCAL_DIR)/dawson_nvi.mk
 PRODUCT_MAKEFILES += $(LOCAL_DIR)/aosp_dawson.mk
+PRODUCT_MAKEFILES += $(LOCAL_DIR)/dawson_nab.mk

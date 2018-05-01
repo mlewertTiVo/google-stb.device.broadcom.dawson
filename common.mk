@@ -31,14 +31,11 @@ export LOCAL_DEVICE_MEDIA
 export LOCAL_DEVICE_OVERLAY      := device/broadcom/dawson/overlay
 ifeq ($(HW_AB_UPDATE_SUPPORT),y)
 LOCAL_DEVICE_SEPOLICY_BLOCK      := device/broadcom/dawson/sepolicy/block
-ifeq ($(LOCAL_DEVICE_FULL_TREBLE),y)
-LOCAL_DEVICE_SEPOLICY_BLOCK      += device/broadcom/dawson/sepolicy/treble
-endif
 else
 LOCAL_DEVICE_SEPOLICY_BLOCK      := device/broadcom/dawson/sepolicy-v2/block
-ifeq ($(LOCAL_DEVICE_FULL_TREBLE),y)
-LOCAL_DEVICE_SEPOLICY_BLOCK      += device/broadcom/dawson/sepolicy-v2/treble
 endif
+ifeq ($(LOCAL_DEVICE_FULL_TREBLE),y)
+LOCAL_DEVICE_SEPOLICY_BLOCK      += device/broadcom/dawson/sepolicy/treble
 endif
 export LOCAL_DEVICE_SEPOLICY_BLOCK
 export LOCAL_DEVICE_AON_GPIO     := device/broadcom/dawson/aon_gpio.cfg:$(TARGET_COPY_OUT_VENDOR)/power/aon_gpio.cfg
