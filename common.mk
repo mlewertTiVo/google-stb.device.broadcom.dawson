@@ -8,8 +8,8 @@ export PLATFORM                  := 97268
 
 # binary distribution
 export BCM_BINDIST_BL_ROOT       := vendor/broadcom/prebuilts/bootloaders/dawson
-export BCM_BINDIST_LIBS_ROOT     := vendor/broadcom/prebuilts/nximg/4.1/dawson
-export BCM_BINDIST_KNL_ROOT      := device/broadcom/dawson-kernel/4.1
+export BCM_BINDIST_LIBS_ROOT     := vendor/broadcom/prebuilts/nximg/4.9/dawson
+export BCM_BINDIST_KNL_ROOT      := device/broadcom/dawson-kernel/4.9
 export BCM_DIST_FORCED_BINDIST   := y
 export BCM_DIST_BLIM_BINS        := y
 
