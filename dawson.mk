@@ -1,27 +1,31 @@
-export LOCAL_PRODUCT_OUT       := dawson
+export LOCAL_PRODUCT_OUT         := dawson
 export LOCAL_DEVICE_FULL_TREBLE  := y
+
+ifeq ($(LOCAL_DEVICE_FORCED_NAB),y)
+export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/nab.o.conf
+LOCAL_DEVICE_FSTAB               := device/broadcom/dawson/fstab/fstab.verity.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.dawson
+LOCAL_DEVICE_FSTAB               += device/broadcom/dawson/fstab/fstab.verity.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.bcm
+LOCAL_DEVICE_RECOVERY_FSTAB      := device/broadcom/common/recovery/fstab.default/recovery.fstab
+else
+export HW_AB_UPDATE_SUPPORT      := y
+export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.o.conf
+LOCAL_DEVICE_FSTAB               := device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.dawson
+LOCAL_DEVICE_FSTAB               += device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.bcm
+LOCAL_DEVICE_RECOVERY_FSTAB      := device/broadcom/common/recovery/fstab.ab-update/recovery.fstab
+endif
+export LOCAL_DEVICE_GPT_O_LAYOUT := y
+export LOCAL_DEVICE_FSTAB
+export LOCAL_DEVICE_RECOVERY_FSTAB
 
 # compile the rc's for the device.
 LOCAL_DEVICE_RCS                 := device/broadcom/common/rcs/init.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.dawson.rc
 LOCAL_DEVICE_RCS                 += device/broadcom/common/rcs/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
 LOCAL_DEVICE_RECOVERY_RCS        := device/broadcom/common/rcs/init.recovery.rc:root/init.recovery.dawson.rc
 
-LOCAL_DEVICE_FSTAB               := device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.dawson
-LOCAL_DEVICE_FSTAB               += device/broadcom/dawson/fstab/fstab.verity.ab-update.early:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.bcm
-export LOCAL_DEVICE_FSTAB
-
-LOCAL_DEVICE_RECOVERY_FSTAB      := device/broadcom/common/recovery/fstab.ab-update/recovery.fstab
-export LOCAL_DEVICE_RECOVERY_FSTAB
-
 # compile the media codecs for the device.
 LOCAL_DEVICE_MEDIA               := device/broadcom/common/media/media_codecs_no_legacy_enc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
 
-export LOCAL_SYSTEMIMAGE_SQUASHFS := n
-export LOCAL_VENDORIMAGE_SQUASHFS := n
-export HW_AB_UPDATE_SUPPORT      := y
 export LOCAL_DEVICE_USE_VERITY   := y
-export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/ab-u.o.conf
-export LOCAL_DEVICE_GPT_O_LAYOUT := y
 
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
