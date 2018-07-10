@@ -56,6 +56,7 @@ export V3D_VARIANT               := vc5
 export LOCAL_DEVICE_REFERENCE_BUILD := device/broadcom/dawson/reference_build.mk
 export LOCAL_DEVICE_SYSTEM_VERITY_PARTITION := /dev/block/platform/rdb/f0200200.sdhci/by-name/system
 export LOCAL_DEVICE_VENDOR_VERITY_PARTITION := /dev/block/platform/rdb/f0200200.sdhci/by-name/vendor
+export LOCAL_DEVICE_PAK_BINARY   := pak.7268.zd.bin
 
 # dtu enabled.
 export HW_DTU_SUPPORT            := y
