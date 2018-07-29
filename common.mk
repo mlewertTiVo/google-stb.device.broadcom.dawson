@@ -54,6 +54,9 @@ endif
 ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
 export LOCAL_DEVICE_BOOT         := 67108864   # 64M
 endif
+ifeq (${LOCAL_ANDROID_64BIT},y)
+export LOCAL_DEVICE_BOOT         := 67108864   # 64M
+endif
 export HW_ENCODER_SUPPORT        := n
 export BT_RFKILL_SUPPORT         := y
 export ANDROID_ENABLE_BT         := uart
@@ -69,6 +72,8 @@ export HW_DTU_SUPPORT            := y
 # kernel command line.
 ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
 # TODO: figure out the ramoops hole setup.
+LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
+elif (${LOCAL_ANDROID_64BIT},y)
 LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
 else
 LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2000m@0m mem=40m@2008m
