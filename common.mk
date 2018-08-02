@@ -70,14 +70,13 @@ export LOCAL_DEVICE_PAK_BINARY_DEV := pak.7268.zd.bin
 export HW_DTU_SUPPORT            := y
 
 # kernel command line.
-ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
-# TODO: figure out the ramoops hole setup.
-LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
-elif (${LOCAL_ANDROID_64BIT},y)
-LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
-else
-LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2000m@0m mem=40m@2008m
+LOCAL_DEVICE_KERNEL_CMDLINE      ?= mem=2000m@0m mem=40m@2008m
 LOCAL_DEVICE_KERNEL_CMDLINE      += ramoops.mem_address=0x7D000000 ramoops.mem_size=0x800000 ramoops.console_size=0x400000
+ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
+LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
+endif
+ifeq (${LOCAL_ANDROID_64BIT},y)
+LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
 endif
 LOCAL_DEVICE_KERNEL_CMDLINE      += rootwait init=/init ro
 export LOCAL_DEVICE_KERNEL_CMDLINE
