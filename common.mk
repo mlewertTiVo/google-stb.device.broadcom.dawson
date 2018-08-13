@@ -65,6 +65,7 @@ export LOCAL_DEVICE_REFERENCE_BUILD := device/broadcom/dawson/reference_build.mk
 export LOCAL_DEVICE_SYSTEM_VERITY_PARTITION := /dev/block/platform/rdb/f0200200.sdhci/by-name/system
 export LOCAL_DEVICE_VENDOR_VERITY_PARTITION := /dev/block/platform/rdb/f0200200.sdhci/by-name/vendor
 export LOCAL_DEVICE_PAK_BINARY_DEV := pak.7268.zd.bin
+export BOLT_BOARD_VB             := BCM97268USFFA4L
 
 # dtu enabled.
 export HW_DTU_SUPPORT            := y
