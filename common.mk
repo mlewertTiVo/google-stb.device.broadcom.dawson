@@ -54,6 +54,9 @@ endif
 ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
 export LOCAL_DEVICE_BOOT         := 67108864   # 64M
 endif
+ifeq (${LOCAL_ANDROID_64BIT},y)
+export LOCAL_DEVICE_BOOT         := 67108864   # 64M
+endif
 export HW_ENCODER_SUPPORT        := n
 export BT_RFKILL_SUPPORT         := y
 export ANDROID_ENABLE_BT         := uart
@@ -61,18 +64,20 @@ export V3D_VARIANT               := vc5
 export LOCAL_DEVICE_REFERENCE_BUILD := device/broadcom/dawson/reference_build.mk
 export LOCAL_DEVICE_SYSTEM_VERITY_PARTITION := /dev/block/platform/rdb/f0200200.sdhci/by-name/system
 export LOCAL_DEVICE_VENDOR_VERITY_PARTITION := /dev/block/platform/rdb/f0200200.sdhci/by-name/vendor
-export LOCAL_DEVICE_PAK_BINARY   := pak.7268.zd.bin
+export LOCAL_DEVICE_PAK_BINARY_DEV := pak.7268.zd.bin
+export BOLT_BOARD_VB             := BCM97268USFFA4L
 
 # dtu enabled.
 export HW_DTU_SUPPORT            := y
 
 # kernel command line.
-ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
-# TODO: figure out the ramoops hole setup.
-LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
-else
-LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2000m@0m mem=40m@2008m
+LOCAL_DEVICE_KERNEL_CMDLINE      ?= mem=2000m@0m mem=40m@2008m
 LOCAL_DEVICE_KERNEL_CMDLINE      += ramoops.mem_address=0x7D000000 ramoops.mem_size=0x800000 ramoops.console_size=0x400000
+ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
+LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
+endif
+ifeq (${LOCAL_ANDROID_64BIT},y)
+LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
 endif
 LOCAL_DEVICE_KERNEL_CMDLINE      += rootwait init=/init ro
 export LOCAL_DEVICE_KERNEL_CMDLINE
