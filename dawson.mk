@@ -74,8 +74,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    \
    ro.nx.eth.irq_mode_mask=f:c \
    \
-   ro.com.google.clientidbase=android-dawson-tv \
-   ro.nrdp.modelgroup=DAWSON \
-   ro.nrdp.validation=ninja_5.1
+   ro.com.google.clientidbase=android-dawson-tv
 
 TARGET_BOOTLOADER_BOARD_NAME := dawson

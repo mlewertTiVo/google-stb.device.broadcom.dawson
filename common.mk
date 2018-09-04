@@ -81,3 +81,6 @@ LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
 endif
 LOCAL_DEVICE_KERNEL_CMDLINE      += rootwait init=/init ro
 export LOCAL_DEVICE_KERNEL_CMDLINE
+
+# Netflix support
+export LOCAL_DEVICE_NRDP_MODEL_GROUP := DAWSON
