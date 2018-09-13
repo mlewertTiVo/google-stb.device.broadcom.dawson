@@ -21,6 +21,3 @@ ro.nx.eth.irq_mode_mask=f:c
 
 # google assigned client id
 ro.com.google.clientidbase=android-dawson-tv
-
-ro.nrdp.modelgroup=DAWSON
-ro.nrdp.validation=ninja_5.1

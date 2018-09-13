@@ -71,6 +71,9 @@ export BOLT_BOARD_VB             := BCM97268USFFA4L
 export HW_DTU_SUPPORT            := y
 
 # kernel command line.
+ifeq ($(LOCAL_DEVICE_LOWRAM),y)
+LOCAL_DEVICE_KERNEL_CMDLINE      := mem=1024m@0m
+else
 LOCAL_DEVICE_KERNEL_CMDLINE      ?= mem=2000m@0m mem=40m@2008m
 LOCAL_DEVICE_KERNEL_CMDLINE      += ramoops.mem_address=0x7D000000 ramoops.mem_size=0x800000 ramoops.console_size=0x400000
 ifeq (${LOCAL_ARM_AARCH64_COMPAT_32_BIT},y)
@@ -79,5 +82,9 @@ endif
 ifeq (${LOCAL_ANDROID_64BIT},y)
 LOCAL_DEVICE_KERNEL_CMDLINE      := mem=2048m@0m
 endif
+endif
 LOCAL_DEVICE_KERNEL_CMDLINE      += rootwait init=/init ro
 export LOCAL_DEVICE_KERNEL_CMDLINE
+
+# Netflix support
+export LOCAL_DEVICE_NRDP_MODEL_GROUP := DAWSON
