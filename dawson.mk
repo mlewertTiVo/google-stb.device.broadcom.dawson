@@ -85,16 +85,22 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifeq ($(LOCAL_DEVICE_LOWRAM),y)
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.nx.heap.video_secure=56m \
-   ro.nx.heap.main=56m \
+   ro.nx.heap.main=66m \
    ro.nx.heap.grow=2m \
    ro.nx.heap.shrink=2m \
-   ro.nx.heap.gfx=32m \
+   ro.nx.heap.gfx=0m \
    \
    ro.config.low_ram=true \
-   ro.lmk.medium=800 \
+   ro.lmk.low=800 \
+   ro.lmk.medium=600 \
+   ro.lmk.critical=-700 \
+   ro.lmk.kill_heaviest_task=true \
+   ro.lmk.kill_timeout_ms=0 \
    ro.lmk.critical_upgrade=true \
    ro.lmk.upgrade_pressure=40 \
-   ro.lmk.downgrade_pressure=60
+   ro.lmk.downgrade_pressure=60 \
+   \
+   pm.dexopt.shared=quicken
 else
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.nx.heap.video_secure=80m \

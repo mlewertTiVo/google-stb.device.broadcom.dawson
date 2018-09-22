@@ -8,3 +8,7 @@ PRODUCT_NAME                   := dawson_mini
 PRODUCT_MODEL                  := dawson
 PRODUCT_BRAND                  := broadcom
 PRODUCT_DEVICE                 := dawson
+
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK   := true
+
