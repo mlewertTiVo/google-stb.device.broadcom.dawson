@@ -84,6 +84,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ifeq ($(LOCAL_DEVICE_LOWRAM),y)
 PRODUCT_PROPERTY_OVERRIDES += \
+   ro.nx.hwc2.tweak.fbs=2 \
+   \
    ro.nx.heap.video_secure=56m \
    ro.nx.heap.main=66m \
    ro.nx.heap.grow=2m \
