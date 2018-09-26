@@ -45,7 +45,7 @@ include device/broadcom/dawson/common.mk
 ifeq ($(LOCAL_DEVICE_LOWRAM),y)
 LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=146m@510m
 LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=256m@688m
-LOCAL_DEVICE_KERNEL_CMDLINE      += ignore_cma=1
+LOCAL_DEVICE_KERNEL_CMDLINE      += brcmv3d.ignore_cma=1
 else
 LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=242m@414m
 LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=768m@1176m
@@ -69,7 +69,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.hardware=dawson \
    \
    ro.opengles.version=196609 \
-   debug.hwui.render_dirty_regions=false \
    ro.nx.mma=1 \
    \
    ro.nx.heap.drv_managed=0m \
