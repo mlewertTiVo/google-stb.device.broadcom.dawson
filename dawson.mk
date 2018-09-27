@@ -102,7 +102,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.lmk.upgrade_pressure=40 \
    ro.lmk.downgrade_pressure=60 \
    \
-   pm.dexopt.shared=quicken
+   pm.dexopt.shared=quicken \
+   \
+   ro.nx.audio.pbk=2 \
+   ro.nx.audio.pbkfifosz=48k \
+   \
+   ro.nx.dtu.all=1
 else
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.nx.heap.video_secure=80m \
