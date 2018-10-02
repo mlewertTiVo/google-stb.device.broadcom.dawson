@@ -1,7 +1,6 @@
 ifndef LOCAL_PRODUCT_OUT
 export LOCAL_PRODUCT_OUT         := dawson
 endif
-export LOCAL_DEVICE_FULL_TREBLE  := y
 
 ifeq ($(LOCAL_DEVICE_FORCED_NAB),y)
 export LOCAL_DEVICE_GPT          := device/broadcom/common/gpts/nab.o.conf
@@ -84,17 +83,30 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ifeq ($(LOCAL_DEVICE_LOWRAM),y)
 PRODUCT_PROPERTY_OVERRIDES += \
+   ro.nx.hwc2.tweak.fbs=2 \
+   \
    ro.nx.heap.video_secure=56m \
-   ro.nx.heap.main=56m \
+   ro.nx.heap.main=66m \
    ro.nx.heap.grow=2m \
    ro.nx.heap.shrink=2m \
-   ro.nx.heap.gfx=32m \
+   ro.nx.heap.gfx=0m \
    \
    ro.config.low_ram=true \
-   ro.lmk.medium=800 \
+   ro.lmk.low=800 \
+   ro.lmk.medium=600 \
+   ro.lmk.critical=-700 \
+   ro.lmk.kill_heaviest_task=true \
+   ro.lmk.kill_timeout_ms=0 \
    ro.lmk.critical_upgrade=true \
    ro.lmk.upgrade_pressure=40 \
-   ro.lmk.downgrade_pressure=60
+   ro.lmk.downgrade_pressure=60 \
+   \
+   pm.dexopt.shared=quicken \
+   \
+   ro.nx.audio.pbk=2 \
+   ro.nx.audio.pbkfifosz=48k \
+   \
+   ro.nx.dtu.all=1
 else
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.nx.heap.video_secure=80m \
