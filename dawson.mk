@@ -43,7 +43,8 @@ include device/broadcom/dawson/common.mk
 # kernel command line.
 ifeq ($(LOCAL_DEVICE_LOWRAM),y)
 LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=38m@510m
-LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=396m@548m
+LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=436m@548m
+LOCAL_DEVICE_KERNEL_CMDLINE      += vmalloc=514m
 #LOCAL_DEVICE_KERNEL_CMDLINE     += brcmv3d.ignore_cma=1
 else
 LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=242m@414m
