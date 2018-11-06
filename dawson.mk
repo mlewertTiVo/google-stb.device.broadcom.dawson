@@ -42,9 +42,10 @@ include device/broadcom/dawson/common.mk
 
 # kernel command line.
 ifeq ($(LOCAL_DEVICE_LOWRAM),y)
-LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=146m@510m
-LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=256m@688m
-LOCAL_DEVICE_KERNEL_CMDLINE      += brcmv3d.ignore_cma=1
+LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=38m@510m
+LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=436m@548m
+LOCAL_DEVICE_KERNEL_CMDLINE      += vmalloc=514m
+#LOCAL_DEVICE_KERNEL_CMDLINE     += brcmv3d.ignore_cma=1
 else
 LOCAL_DEVICE_KERNEL_CMDLINE      += bmem=242m@414m
 LOCAL_DEVICE_KERNEL_CMDLINE      += brcm_cma=768m@1176m
@@ -85,7 +86,7 @@ ifeq ($(LOCAL_DEVICE_LOWRAM),y)
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.nx.hwc2.tweak.fbs=2 \
    \
-   ro.nx.heap.video_secure=56m \
+   ro.nx.heap.video_secure=36m \
    ro.nx.heap.main=66m \
    ro.nx.heap.grow=2m \
    ro.nx.heap.shrink=2m \
@@ -108,6 +109,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.nx.audio.pcm=1 \
    ro.nx.trpt.pband=1 \
    ro.nx.trpt.ppump=2 \
+   ro.nx.trim.deint=1 \
+   ro.nx.trim.disp.cap=1 \
    \
    ro.nx.dtu.all=1
 else
