@@ -37,6 +37,9 @@ LOCAL_DEVICE_MEDIA               := device/broadcom/common/media/media_codecs_no
 
 export LOCAL_DEVICE_USE_VERITY   := y
 
+# warning: do not use bstc8 compression!
+export LOCAL_DEVICE_RTS_MODE     := 2
+
 # common to all dawson devices.
 include device/broadcom/dawson/common.mk
 
@@ -118,7 +121,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
    ro.nx.heap.main=96m \
    ro.nx.heap.grow=2m \
    ro.nx.heap.shrink=2m \
-   ro.nx.heap.gfx=64m
+   ro.nx.heap.gfx=64m \
+   \
+   ro.nx.hwc2.tweak.fbcomp=0
 endif
 
 TARGET_BOOTLOADER_BOARD_NAME := dawson
